@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承  一。原型链继承function Show(){this.name=”run”;} function Run(){this.age=”20”; //Run继承了Show,通过原型，形成链条}Run.prototype=new Show();var sh">
+<meta name="description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原型继承的几种方式">
 <meta property="og:url" content="http://yoursite.com/2017/05/11/原型继承的几种方式/index.html">
 <meta property="og:site_name" content="choik">
-<meta property="og:description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承  一。原型链继承function Show(){this.name=”run”;} function Run(){this.age=”20”; //Run继承了Show,通过原型，形成链条}Run.prototype=new Show();var sh">
-<meta property="og:updated_time" content="2017-10-22T13:30:45.622Z">
+<meta property="og:description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
+<meta property="og:updated_time" content="2017-10-22T13:36:10.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型继承的几种方式">
-<meta name="twitter:description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承  一。原型链继承function Show(){this.name=”run”;} function Run(){this.age=”20”; //Run继承了Show,通过原型，形成链条}Run.prototype=new Show();var sh">
+<meta name="twitter:description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
 
 
 
@@ -308,6 +308,7 @@
 <ol>
 <li>寄生组合式继承</li>
 </ol>
+<a id="more"></a>
 <h2 id="一。原型链继承"><a href="#一。原型链继承" class="headerlink" title="一。原型链继承"></a>一。原型链继承</h2><p>function Show(){<br>this.name=”run”;<br>}</p>
 <p>function Run(){<br>this.age=”20”; //Run继承了Show,通过原型，形成链条<br>}<br>Run.prototype=new Show();<br>var show=new Run();<br>alert(show.name)//结果：run</p>
 <h2 id="二。构造函数继承（对象冒充继承）"><a href="#二。构造函数继承（对象冒充继承）" class="headerlink" title="二。构造函数继承（对象冒充继承）"></a>二。构造函数继承（对象冒充继承）</h2><p>为了解决引用共享和超类型无法传参的问题，我们采用一种叫借用构造函数的技术，或<br>者成为对象冒充(伪造对象、经典继承)的技术来解决这两种问题 </p>

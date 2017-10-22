@@ -298,8 +298,7 @@
 
       
         
-          
-            <h1 id="js原型继承的几种方式"><a href="#js原型继承的几种方式" class="headerlink" title="js原型继承的几种方式"></a>js原型继承的几种方式</h1><ol>
+          <h1 id="js原型继承的几种方式"><a href="#js原型继承的几种方式" class="headerlink" title="js原型继承的几种方式"></a>js原型继承的几种方式</h1><ol>
 <li>原型链继承</li>
 </ol>
 <p>2，构造函数继承（对象冒充继承）</p>
@@ -308,20 +307,13 @@
 <ol>
 <li>寄生组合式继承</li>
 </ol>
-<h2 id="一。原型链继承"><a href="#一。原型链继承" class="headerlink" title="一。原型链继承"></a>一。原型链继承</h2><p>function Show(){<br>this.name=”run”;<br>}</p>
-<p>function Run(){<br>this.age=”20”; //Run继承了Show,通过原型，形成链条<br>}<br>Run.prototype=new Show();<br>var show=new Run();<br>alert(show.name)//结果：run</p>
-<h2 id="二。构造函数继承（对象冒充继承）"><a href="#二。构造函数继承（对象冒充继承）" class="headerlink" title="二。构造函数继承（对象冒充继承）"></a>二。构造函数继承（对象冒充继承）</h2><p>为了解决引用共享和超类型无法传参的问题，我们采用一种叫借用构造函数的技术，或<br>者成为对象冒充(伪造对象、经典继承)的技术来解决这两种问题 </p>
-<p>function Box(age){<br>this.name=[‘Lee’,’Jack’,’Hello’]<br>this.age=age;<br>}<br>function Desk(age){<br>Box.call(this,age); //对象冒充，给超类型传参<br>}<br>var desk = new Desk(200);<br>alert(desk.age);//200<br>alert(desk.name);//[‘Lee’,’Jack’,’Hello’]<br>desk.name.push(‘AAA’); //添加的新数据，只给 desk<br>alert(desk.name)//[‘Lee’,’Jack’,’Hello’,’AAA’]</p>
-<h2 id="三。组合继承（原型链继承-构造函数继承）"><a href="#三。组合继承（原型链继承-构造函数继承）" class="headerlink" title="三。组合继承（原型链继承+构造函数继承）"></a>三。组合继承（原型链继承+构造函数继承）</h2><p>借用构造函数虽然解决了刚才两种问题， 但没有原型， 复用则无从谈起。 所以， 我们需<br>要原型链+借用构造函数的模式，这种模式成为组合继承。</p>
-<p>function Box(age) {<br>this.name = [‘Lee’, ‘Jack’, ‘Hello’]<br>this.age = age;<br>}<br>Box.prototype.run = function () {<br>return this.name + this.age;<br>};<br>function Desk(age) {<br>Box.call(this, age); //对象冒充<br>}<br>Desk.prototype = new Box(); //原型链继承<br>var desk = new Desk(100);<br>alert(desk.run());</p>
-<h2 id="四。原型式继承"><a href="#四。原型式继承" class="headerlink" title="四。原型式继承"></a>四。原型式继承</h2><p>这种继承借助原型并基于已有的对象创建新对象，<br>同时还不必因此创建自定义类型 </p>
-<p>function obj(o) { //传递一个字面量函数<br>function F() {} //创建一个构造函数<br>F.prototype = o; //把字面量函数赋值给构造函数的原型<br>return new F(); //最终返回出实例化的构造函数<br>}<br>var box = { //字面量对象<br>name : ‘Lee’,<br>arr : [‘哥哥’,’妹妹’,’姐姐’]<br>};<br>var box1 = obj(box); //传递<br>alert(box1.name);<br>box1.name = ‘Jack’;<br>alert(box1.name);<br>alert(box1.arr);<br>box1.arr.push(‘父母’);<br>alert(box1.arr);<br>var box2 = obj(box); //传递<br>alert(box2.name);<br>alert(box2.arr); //引用类型共享了</p>
-<h2 id="五。寄生组合式继承"><a href="#五。寄生组合式继承" class="headerlink" title="五。寄生组合式继承"></a>五。寄生组合式继承</h2><p>寄生组合式继承解决了两次调用的问题，组合式继承就会有两次调用的情况</p>
-<p>基本模型如下：</p>
-<p>function object(o) {<br>    function F() {}<br>    F.prototype = o;<br>    return new F();<br>}</p>
-<p>function inheritPrototype(subType, superType) {<br>    var prototype = object(superType.prototype);  //创建对象<br>    prototype.constructor = subType;              //增强对象<br>    subType.prototype = prototype;                //指定对象<br>}</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/11/原型继承的几种方式/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -438,71 +430,15 @@
 
       
         
-          
-            <h1 id="1-简化的文档类型和字符集"><a href="#1-简化的文档类型和字符集" class="headerlink" title="1.简化的文档类型和字符集"></a>1.简化的文档类型和字符集</h1><h2 id="1）文档类型"><a href="#1）文档类型" class="headerlink" title="1）文档类型"></a>1）文档类型</h2><p><code>&lt;!DOCTYPE HTML&gt;</code><br>    之所以如此简单，是因为HTML5不再是SGML（ Standard Generalized Markup language，标准通用标记语言）的一部分，而是独立的标记语言，不需要再考虑文档类型</p>
-<h2 id="2）字符集"><a href="#2）字符集" class="headerlink" title="2）字符集"></a>2）字符集</h2><p><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code><br>只需要utf-8即可</p>
-<h1 id="2-富有语义化的新结构元素"><a href="#2-富有语义化的新结构元素" class="headerlink" title="2.富有语义化的新结构元素"></a>2.富有语义化的新结构元素</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;header&gt;</div><div class="line">　　&lt;h1&gt;HTML5新结构&lt;h1/&gt;</div><div class="line">　　&lt;nav&gt;导航部分&lt;/nav&gt;</div><div class="line">　　&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;section&gt;</div><div class="line">    &lt;h1&gt;&lt;/h1&gt;</div><div class="line">    &lt;p&gt;不再全是div&lt;/p&gt;</div><div class="line">　　。。。</div><div class="line">&lt;/section&gt;</div><div class="line">&lt;footer&gt;</div><div class="line">&lt;/footer&gt;</div></pre></td></tr></table></figure>
-<p>section元素 可以认为div是section元素,一个普通的分块元素，可用来定义网站中的特定的可区别的区域</p>
-<p>　　header元素包括标题，logo，导航和其他页眉的内容，可以在网站上加多个header，就像给内容加多个标题</p>
-<p>　　hgroup元素 即将标题进行分组的元素</p>
-<p>　　footer元素版权声明和作者信息,包涵一些链接</p>
-<p>　　nav元素主要用于主导航菜单</p>
-<p>　　article元素独立成文且以其他格式重用的内容应该置于一个article元素中</p>
-<p>　　aside元素用途包涵内容周围的相关内容</p>
-<h1 id="3-新增的内联元素"><a href="#3-新增的内联元素" class="headerlink" title="3.新增的内联元素"></a>3.新增的内联元素</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;figure&gt;</div><div class="line">    &lt;p&gt;图片&lt;/p&gt;</div><div class="line">    &lt;img src=&quot;img1.jpg&quot; width=&quot;100&quot; height=&quot;100&quot;&gt;</div><div class="line">&lt;/figure&gt;</div></pre></td></tr></table></figure>
-<p>figure元素一个典型用途是包含图像,代码和其他内容对主要内容进行说明，删除不会影响主内容</p>
-<p>　　figcaption元素主要用于figure的标题</p>
-<p>　　mark元素突出显示以表示引用的内容，或者突出显示与用户当前活动相关的内容，他不同于en或strong元素</p>
-<p>　　time元素，当需要在内容中显示时间或者日期时，则建议使用time元素</p>
-<p>　　time元素可以包涵两个属性，一个datetime表示在元素中指定的确切日期和世家，pubdate表示文章或者整个文档发布时time元素所指定的日期和时间</p>
-<p>　　meter元素用于定义度量衡，规定最大最小宽高，通常要结合css一起作用，效果如下：</p>
-<p> 技术分享</p>
-<p>　　progress元素用于定义一个进度条，有max（完成值）和value（进度条当前值）两个属性。</p>
-<h1 id="4-全新的表单设计"><a href="#4-全新的表单设计" class="headerlink" title="4.全新的表单设计"></a>4.全新的表单设计</h1><h2 id="HTML5-新的-Input-类型"><a href="#HTML5-新的-Input-类型" class="headerlink" title="HTML5 新的 Input 类型"></a>HTML5 新的 Input 类型</h2><p>HTML5 拥有多个新的表单输入类型。这些新特性提供了更好的输入控制和验证。</p>
-<ul>
-<li>email</li>
-<li>url</li>
-<li>number</li>
-<li>range</li>
-<li>Date pickers (date, month, week, time, datetime, datetime-local)</li>
-<li>search</li>
-<li>color</li>
-</ul>
-<h2 id="HTML5-的新的表单元素："><a href="#HTML5-的新的表单元素：" class="headerlink" title="HTML5 的新的表单元素："></a>HTML5 的新的表单元素：</h2><ul>
-<li>datalist</li>
-<li>keygen</li>
-<li>output</li>
-</ul>
-<h2 id="新的-form-属性："><a href="#新的-form-属性：" class="headerlink" title="新的 form 属性："></a>新的 form 属性：</h2><ul>
-<li>autocomplete</li>
-<li>novalidate</li>
-</ul>
-<h2 id="新的-input-属性："><a href="#新的-input-属性：" class="headerlink" title="新的 input 属性："></a>新的 input 属性：</h2><ul>
-<li>autocomplete</li>
-<li>autofocus</li>
-<li>form</li>
-<li>form overrides (formaction, formenctype, formmethod, formnovalidate, formtarget)</li>
-<li>height 和 width</li>
-<li>list</li>
-<li>min, max 和 step</li>
-<li>multiple</li>
-<li>pattern (regexp)</li>
-<li>placeholder</li>
-<li>required</li>
-</ul>
-<h1 id="5-强大的绘图功能和多媒体功能"><a href="#5-强大的绘图功能和多媒体功能" class="headerlink" title="5.强大的绘图功能和多媒体功能"></a>5.强大的绘图功能和多媒体功能</h1><p>1）canvas 可以动态地绘制各种效果精美的图形，结合js就能让网页图形动起来</p>
-<p>2）SVG 绘制可伸缩的矢量图形</p>
-<p>3）audio和 video 可以不依赖任何插件播放音频和视频</p>
-<h1 id="6-打造桌面应用的一系列新功能"><a href="#6-打造桌面应用的一系列新功能" class="headerlink" title="6.打造桌面应用的一系列新功能"></a>6.打造桌面应用的一系列新功能</h1><p>离线缓存 Web Storage（为HTML5开发移动应用提供了基础）</p>
-<p>　　传统的web应用程序中，数据处理都由服务器处理，html只负责展示数据，cookie只能存储少量的数据，跨域通信只能通过web服务器。</p>
-<p>　　HTML5扩充了文件存储的能力，多达5MB，支持WebSQL等轻量级数据库，可以开发支持离线web应用程序。</p>
-<p>　　HTML5 Web Storage API可以看做是加强版的cookie，不受数据大小限制，有更好的弹性以及架构，可以将数据写入到本机的ROM中，还可以在关闭浏览器后再次打开时恢复数据，以减少网络流量。</p>
-<p>　　同时，这个功能算得上是另一个方向的后台“操作记录”，而不占用任何后台资源，减轻设备硬件压力，增加运行流畅性。</p>
-<h1 id="7-获取地理位置信息"><a href="#7-获取地理位置信息" class="headerlink" title="7.获取地理位置信息"></a>7.获取地理位置信息</h1><p>新增Geolocation API，可以通过浏览器获取用户的地理位置，不再需要借助第三方地址数据库或专业的开发包，提供很大的方便。</p>
-<h1 id="8-支持多线程"><a href="#8-支持多线程" class="headerlink" title="8.支持多线程"></a>8.支持多线程</h1><p>　新增Web Worker对象，可以在后台运行js脚本，也就是支持多线程，从而提高了页面加载效率。</p>
-
-          
+          <h1 id="1-简化的文档类型和字符集"><a href="#1-简化的文档类型和字符集" class="headerlink" title="1.简化的文档类型和字符集"></a>1.简化的文档类型和字符集</h1><h2 id="1）文档类型"><a href="#1）文档类型" class="headerlink" title="1）文档类型"></a>1）文档类型</h2><p><code>&lt;!DOCTYPE HTML&gt;</code><br>    之所以如此简单，是因为HTML5不再是SGML（ Standard Generalized Markup language，标准通用标记语言）的一部分，而是独立的标记语言，不需要再考虑文档类型</p>
+<h2 id="2）字符集"><a href="#2）字符集" class="headerlink" title="2）字符集"></a>2）字符集</h2><p><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code><br>只需要utf-8即可<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/01/H5新特性/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
