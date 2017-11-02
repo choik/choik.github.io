@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript," />
+  <meta name="keywords" content="性能," />
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="关于页面相应时间，有一条著名的“2-5-8原则”。当用户访问一个页面： 在2秒内得到响应时，会感觉系统响应很快；在2-5秒之间得到响应时，会感觉系统的响应速度还可以；在5-8秒以内得到响应时，会感觉系统的响应速度很慢，但可以接受；而超过8秒后仍然无法得到响应时，用户会感觉系统糟透了，进而选择离开这个站点，或者发起第二次请求。 对于一个网站如果希望抓住用户，网站的速度以及稳定性是首当其冲的。 从各式">
+<meta name="keywords" content="性能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原型继承的几种方式">
-<meta property="og:url" content="http://yoursite.com/2017/05/11/原型继承的几种方式/index.html">
+<meta property="og:title" content="前端的几个性能指标">
+<meta property="og:url" content="http://yoursite.com/2017/11/02/前端的几个性能指标/index.html">
 <meta property="og:site_name" content="choik">
-<meta property="og:description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
-<meta property="og:updated_time" content="2017-10-22T13:36:10.534Z">
+<meta property="og:description" content="关于页面相应时间，有一条著名的“2-5-8原则”。当用户访问一个页面： 在2秒内得到响应时，会感觉系统响应很快；在2-5秒之间得到响应时，会感觉系统的响应速度还可以；在5-8秒以内得到响应时，会感觉系统的响应速度很慢，但可以接受；而超过8秒后仍然无法得到响应时，用户会感觉系统糟透了，进而选择离开这个站点，或者发起第二次请求。 对于一个网站如果希望抓住用户，网站的速度以及稳定性是首当其冲的。 从各式">
+<meta property="og:updated_time" content="2017-11-02T11:54:46.792Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原型继承的几种方式">
-<meta name="twitter:description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
+<meta name="twitter:title" content="前端的几个性能指标">
+<meta name="twitter:description" content="关于页面相应时间，有一条著名的“2-5-8原则”。当用户访问一个页面： 在2秒内得到响应时，会感觉系统响应很快；在2-5秒之间得到响应时，会感觉系统的响应速度还可以；在5-8秒以内得到响应时，会感觉系统的响应速度很慢，但可以接受；而超过8秒后仍然无法得到响应时，用户会感觉系统糟透了，进而选择离开这个站点，或者发起第二次请求。 对于一个网站如果希望抓住用户，网站的速度以及稳定性是首当其冲的。 从各式">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/11/原型继承的几种方式/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/02/前端的几个性能指标/"/>
 
 
 
 
 
-  <title>原型继承的几种方式 | choik</title>
+  <title>前端的几个性能指标 | choik</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/原型继承的几种方式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/02/前端的几个性能指标/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">原型继承的几种方式</h1>
+          <h1 class="post-title" itemprop="name headline">前端的几个性能指标</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-11T21:29:18+08:00">
-                2017-05-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-02T19:53:54+08:00">
+                2017-11-02
               </time>
             
 
@@ -299,28 +299,30 @@
       
 
       
-        <h1 id="js原型继承的几种方式"><a href="#js原型继承的几种方式" class="headerlink" title="js原型继承的几种方式"></a>js原型继承的几种方式</h1><ol>
-<li>原型链继承</li>
-</ol>
-<p>2，构造函数继承（对象冒充继承）</p>
-<p>3，组合继承（原型链继承+构造函数继承）</p>
-<p>4，原型式继承</p>
-<ol>
-<li>寄生组合式继承</li>
-</ol>
+        <p>关于页面相应时间，有一条著名的“2-5-8原则”。当用户访问一个页面：</p>
+<p>在2秒内得到响应时，会感觉系统响应很快；<br>在2-5秒之间得到响应时，会感觉系统的响应速度还可以；<br>在5-8秒以内得到响应时，会感觉系统的响应速度很慢，但可以接受；<br>而超过8秒后仍然无法得到响应时，用户会感觉系统糟透了，进而选择离开这个站点，或者发起第二次请求。</p>
+<p>对于一个网站如果希望抓住用户，网站的速度以及稳定性是首当其冲的。</p>
+<p>从各式各样的前端监控平台中，你都可以获得页面很多的性能指标。本文将介绍几个几个比较关键的指标，并给出相应的优化思路。</p>
 <a id="more"></a>
-<h2 id="一。原型链继承"><a href="#一。原型链继承" class="headerlink" title="一。原型链继承"></a>一。原型链继承</h2><p>function Show(){<br>this.name=”run”;<br>}</p>
-<p>function Run(){<br>this.age=”20”; //Run继承了Show,通过原型，形成链条<br>}<br>Run.prototype=new Show();<br>var show=new Run();<br>alert(show.name)//结果：run</p>
-<h2 id="二。构造函数继承（对象冒充继承）"><a href="#二。构造函数继承（对象冒充继承）" class="headerlink" title="二。构造函数继承（对象冒充继承）"></a>二。构造函数继承（对象冒充继承）</h2><p>为了解决引用共享和超类型无法传参的问题，我们采用一种叫借用构造函数的技术，或<br>者成为对象冒充(伪造对象、经典继承)的技术来解决这两种问题 </p>
-<p>function Box(age){<br>this.name=[‘Lee’,’Jack’,’Hello’]<br>this.age=age;<br>}<br>function Desk(age){<br>Box.call(this,age); //对象冒充，给超类型传参<br>}<br>var desk = new Desk(200);<br>alert(desk.age);//200<br>alert(desk.name);//[‘Lee’,’Jack’,’Hello’]<br>desk.name.push(‘AAA’); //添加的新数据，只给 desk<br>alert(desk.name)//[‘Lee’,’Jack’,’Hello’,’AAA’]</p>
-<h2 id="三。组合继承（原型链继承-构造函数继承）"><a href="#三。组合继承（原型链继承-构造函数继承）" class="headerlink" title="三。组合继承（原型链继承+构造函数继承）"></a>三。组合继承（原型链继承+构造函数继承）</h2><p>借用构造函数虽然解决了刚才两种问题， 但没有原型， 复用则无从谈起。 所以， 我们需<br>要原型链+借用构造函数的模式，这种模式成为组合继承。</p>
-<p>function Box(age) {<br>this.name = [‘Lee’, ‘Jack’, ‘Hello’]<br>this.age = age;<br>}<br>Box.prototype.run = function () {<br>return this.name + this.age;<br>};<br>function Desk(age) {<br>Box.call(this, age); //对象冒充<br>}<br>Desk.prototype = new Box(); //原型链继承<br>var desk = new Desk(100);<br>alert(desk.run());</p>
-<h2 id="四。原型式继承"><a href="#四。原型式继承" class="headerlink" title="四。原型式继承"></a>四。原型式继承</h2><p>这种继承借助原型并基于已有的对象创建新对象，<br>同时还不必因此创建自定义类型 </p>
-<p>function obj(o) { //传递一个字面量函数<br>function F() {} //创建一个构造函数<br>F.prototype = o; //把字面量函数赋值给构造函数的原型<br>return new F(); //最终返回出实例化的构造函数<br>}<br>var box = { //字面量对象<br>name : ‘Lee’,<br>arr : [‘哥哥’,’妹妹’,’姐姐’]<br>};<br>var box1 = obj(box); //传递<br>alert(box1.name);<br>box1.name = ‘Jack’;<br>alert(box1.name);<br>alert(box1.arr);<br>box1.arr.push(‘父母’);<br>alert(box1.arr);<br>var box2 = obj(box); //传递<br>alert(box2.name);<br>alert(box2.arr); //引用类型共享了</p>
-<h2 id="五。寄生组合式继承"><a href="#五。寄生组合式继承" class="headerlink" title="五。寄生组合式继承"></a>五。寄生组合式继承</h2><p>寄生组合式继承解决了两次调用的问题，组合式继承就会有两次调用的情况</p>
-<p>基本模型如下：</p>
-<p>function object(o) {<br>    function F() {}<br>    F.prototype = o;<br>    return new F();<br>}</p>
-<p>function inheritPrototype(subType, superType) {<br>    var prototype = object(superType.prototype);  //创建对象<br>    prototype.constructor = subType;              //增强对象<br>    subType.prototype = prototype;                //指定对象<br>}</p>
+<h1 id="开始渲染时间"><a href="#开始渲染时间" class="headerlink" title="开始渲染时间"></a>开始渲染时间</h1><p>该时间点表示浏览器开始绘制页面，在此之前页面都是白屏，所以也称为白屏时间。</p>
+<p>该时间点可用公式Time To Start Render = TTFB（Time To First Byte） + TTDD（Time To Document Download） + TTHE（Time To Head End）表示。其中TTFB表示浏览器发起请求到服务器返回第一个字节的时间，TTDD表示从服务器加载HTML文档的时间，TTHE表示文档头部解析完成所需要的时间。在高级浏览器中有对应的属性可以获取该时间点。Chrome可通过chrome.loadTimes().firstPaintTime获取，IE9+可以通过performance.timing.msFirstPaint获取，在不支持的浏览器中可以根据上面公式通过获取头部资源加载完的时刻模拟获取近似值。开始渲染时间越快，用户就能更快的看见页面。</p>
+<p>对于该时间点的优化有：</p>
+<p>1)优化服务器响应时间，服务器端尽早输出<br>2)减少html文件大小<br>3)减少头部资源,脚本尽量放在body中</p>
+<h1 id="DOM-Ready"><a href="#DOM-Ready" class="headerlink" title="DOM Ready"></a>DOM Ready</h1><p>该时间点表示dom解析已经完成，资源还没有加载完成, 这个时候用户与页面的交互已经可用了。用公式TimeTo Dom Ready = TTSR(Time To Start Render) + TTDC(Time To Dom Created) + TTST(Time To Script)可以表示。TTSR上面已经介绍过了，TTDC表示DOM树创建所耗时间。TTST表示BODY中所有静态脚本加载和执行的时间。在高级浏览器中有DOMContentLoaded事件对应，MDN上有关DOMContentLoaded事件描述的文档如下，</p>
+<p>The DOMContentLoaded event is fired when the document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading (the load event can be used to detect a fully-loaded page).</p>
+<p>详细规范可以查看W3C的HTML5规范。从MDN文档上可以看出该事件主要是指dom文档加载解析完成，看上去很简单，但是DOMContentLoaded事件的触发与css,js息息相关，现在有专门的名词Critical Rendering Path(关键呈现路径)来描述，在文章【关键呈现路径】中详细介绍了关键呈现路径对DOMContentLoaded的影响。</p>
+<p>在不支持DOMContentLoaded事件的浏览器中可以通过模拟获取近似值，主要的模拟方法有：</p>
+<p>1）低版本webkit内核浏览器可以通过轮询document.readyState来实现<br>2）ie中可通过setTimeout不断调用documentElement的doScroll方法，直到其可用来实现</p>
+<p>具体实现方法可以参考主流框架(jquery等)的实现。 DOM Ready时间点意味着用户与页面可以进行交互了，因此越早越好，对于该时间点的优化有：</p>
+<p>1）减少dom结构的复杂度，节点尽可能少，嵌套不要太深<br>2）优化关键呈现路径</p>
+<h1 id="首屏时间"><a href="#首屏时间" class="headerlink" title="首屏时间"></a>首屏时间</h1><p>该时间点表示用户看到第一屏页面的时间，这个时间点很重要但是很难获取，一般都只能通过模拟获取一个近似时间。一般模拟方法有：</p>
+<p>1）不断获取屏幕截图，当截图不再变化时，可以视为首屏时间。可参考webPagetest的Speed Index算法；<br>2）一般影响首屏的主要因素是图片的加载，通过页面加载完后判断图片是否在首屏内，找出加载最慢的一张即可视为首屏时间。当然还需考虑其他细节，具体可参考【7天打造前端性能监控系统】</p>
+<p>针对该时间点的优化有：</p>
+<p>1）页面首屏的显示尽量不要依赖于js代码，js尽量放到domReady后执行或加载<br>2）首屏外的图片延迟加载<br>3）首屏结构尽量简单，首屏外的css可延迟加载</p>
+<h1 id="onload"><a href="#onload" class="headerlink" title="onload"></a>onload</h1><p>该时间点是window.onload事件触发的时间，表示原始文档和所有引用的内容已经加载完成，用户最明显的感觉就是浏览器tab上loading状态结束。 </p>
+<p>该时间点的优化方式有：</p>
+<p>1）减少资源的请求数和文件大小<br>2）将非初始化脚本放到onLoad之后执行<br>3）无需同步的脚本异步加载</p>
+<p>为了优化整站性能，页面onload的时候可以考虑做一些预加载，把其它页面需要用到的资源预先加载进来。</p>
 
       
     </div>
@@ -338,7 +340,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/性能/" rel="tag"># 性能</a>
           
         </div>
       
@@ -351,8 +353,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/01/H5新特性/" rel="next" title="H5新特性">
-                <i class="fa fa-chevron-left"></i> H5新特性
+              <a href="/2017/06/01/原型与原型链/" rel="next" title="原型与原型链">
+                <i class="fa fa-chevron-left"></i> 原型与原型链
               </a>
             
           </div>
@@ -360,10 +362,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/20/setTimeout和setInterval/" rel="prev" title="setTimeout和setInterval">
-                setTimeout和setInterval <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -488,7 +486,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js原型继承的几种方式"><span class="nav-number">1.</span> <span class="nav-text">js原型继承的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一。原型链继承"><span class="nav-number">1.1.</span> <span class="nav-text">一。原型链继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二。构造函数继承（对象冒充继承）"><span class="nav-number">1.2.</span> <span class="nav-text">二。构造函数继承（对象冒充继承）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三。组合继承（原型链继承-构造函数继承）"><span class="nav-number">1.3.</span> <span class="nav-text">三。组合继承（原型链继承+构造函数继承）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四。原型式继承"><span class="nav-number">1.4.</span> <span class="nav-text">四。原型式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五。寄生组合式继承"><span class="nav-number">1.5.</span> <span class="nav-text">五。寄生组合式继承</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开始渲染时间"><span class="nav-number">1.</span> <span class="nav-text">开始渲染时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-Ready"><span class="nav-number">2.</span> <span class="nav-text">DOM Ready</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首屏时间"><span class="nav-number">3.</span> <span class="nav-text">首屏时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#onload"><span class="nav-number">4.</span> <span class="nav-text">onload</span></a></li></ol></div>
             
 
           </div>

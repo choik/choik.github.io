@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
+<meta name="description" content="一、初识原型在JavaScript中，原型也是一个对象，通过原型可以实现对象的属性继承，JavaScript的对象中都包含了一个”[[Prototype]]”内部属性，这个属性所对应的就是该对象的原型。“[[Prototype]]”作为对象的内部属性，是不能被直接访问的。所以为了方便查看一个对象的原型，Firefox和Chrome中提供了proto这个非标准（不是所有浏览器都支持）的访问器（ECM">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原型继承的几种方式">
-<meta property="og:url" content="http://yoursite.com/2017/05/11/原型继承的几种方式/index.html">
+<meta property="og:title" content="原型与原型链">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/原型与原型链/index.html">
 <meta property="og:site_name" content="choik">
-<meta property="og:description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
-<meta property="og:updated_time" content="2017-10-22T13:36:10.534Z">
+<meta property="og:description" content="一、初识原型在JavaScript中，原型也是一个对象，通过原型可以实现对象的属性继承，JavaScript的对象中都包含了一个”[[Prototype]]”内部属性，这个属性所对应的就是该对象的原型。“[[Prototype]]”作为对象的内部属性，是不能被直接访问的。所以为了方便查看一个对象的原型，Firefox和Chrome中提供了proto这个非标准（不是所有浏览器都支持）的访问器（ECM">
+<meta property="og:updated_time" content="2017-11-02T11:47:44.792Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原型继承的几种方式">
-<meta name="twitter:description" content="js原型继承的几种方式 原型链继承  2，构造函数继承（对象冒充继承） 3，组合继承（原型链继承+构造函数继承） 4，原型式继承  寄生组合式继承">
+<meta name="twitter:title" content="原型与原型链">
+<meta name="twitter:description" content="一、初识原型在JavaScript中，原型也是一个对象，通过原型可以实现对象的属性继承，JavaScript的对象中都包含了一个”[[Prototype]]”内部属性，这个属性所对应的就是该对象的原型。“[[Prototype]]”作为对象的内部属性，是不能被直接访问的。所以为了方便查看一个对象的原型，Firefox和Chrome中提供了proto这个非标准（不是所有浏览器都支持）的访问器（ECM">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/11/原型继承的几种方式/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/01/原型与原型链/"/>
 
 
 
 
 
-  <title>原型继承的几种方式 | choik</title>
+  <title>原型与原型链 | choik</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/原型继承的几种方式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/原型与原型链/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">原型继承的几种方式</h1>
+          <h1 class="post-title" itemprop="name headline">原型与原型链</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-11T21:29:18+08:00">
-                2017-05-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-01T19:40:14+08:00">
+                2017-06-01
               </time>
             
 
@@ -299,28 +299,17 @@
       
 
       
-        <h1 id="js原型继承的几种方式"><a href="#js原型继承的几种方式" class="headerlink" title="js原型继承的几种方式"></a>js原型继承的几种方式</h1><ol>
-<li>原型链继承</li>
-</ol>
-<p>2，构造函数继承（对象冒充继承）</p>
-<p>3，组合继承（原型链继承+构造函数继承）</p>
-<p>4，原型式继承</p>
-<ol>
-<li>寄生组合式继承</li>
-</ol>
+        <h1 id="一、初识原型"><a href="#一、初识原型" class="headerlink" title="一、初识原型"></a>一、初识原型</h1><p>在JavaScript中，原型也是一个对象，通过原型可以实现对象的属性继承，JavaScript的对象中都包含了一个”[[Prototype]]”内部属性，这个属性所对应的就是该对象的原型。<br>“[[Prototype]]”作为对象的内部属性，是不能被直接访问的。所以为了方便查看一个对象的原型，Firefox和Chrome中提供了<strong>proto</strong>这个非标准（不是所有浏览器都支持）的访问器（ECMA引入了标准对象原型访问器”Object.getPrototype(object)”）。在JavaScript的原型对象中，还包含一个”constructor”属性，这个属性对应创建所有指向该原型的实例的构造函数</p>
 <a id="more"></a>
-<h2 id="一。原型链继承"><a href="#一。原型链继承" class="headerlink" title="一。原型链继承"></a>一。原型链继承</h2><p>function Show(){<br>this.name=”run”;<br>}</p>
-<p>function Run(){<br>this.age=”20”; //Run继承了Show,通过原型，形成链条<br>}<br>Run.prototype=new Show();<br>var show=new Run();<br>alert(show.name)//结果：run</p>
-<h2 id="二。构造函数继承（对象冒充继承）"><a href="#二。构造函数继承（对象冒充继承）" class="headerlink" title="二。构造函数继承（对象冒充继承）"></a>二。构造函数继承（对象冒充继承）</h2><p>为了解决引用共享和超类型无法传参的问题，我们采用一种叫借用构造函数的技术，或<br>者成为对象冒充(伪造对象、经典继承)的技术来解决这两种问题 </p>
-<p>function Box(age){<br>this.name=[‘Lee’,’Jack’,’Hello’]<br>this.age=age;<br>}<br>function Desk(age){<br>Box.call(this,age); //对象冒充，给超类型传参<br>}<br>var desk = new Desk(200);<br>alert(desk.age);//200<br>alert(desk.name);//[‘Lee’,’Jack’,’Hello’]<br>desk.name.push(‘AAA’); //添加的新数据，只给 desk<br>alert(desk.name)//[‘Lee’,’Jack’,’Hello’,’AAA’]</p>
-<h2 id="三。组合继承（原型链继承-构造函数继承）"><a href="#三。组合继承（原型链继承-构造函数继承）" class="headerlink" title="三。组合继承（原型链继承+构造函数继承）"></a>三。组合继承（原型链继承+构造函数继承）</h2><p>借用构造函数虽然解决了刚才两种问题， 但没有原型， 复用则无从谈起。 所以， 我们需<br>要原型链+借用构造函数的模式，这种模式成为组合继承。</p>
-<p>function Box(age) {<br>this.name = [‘Lee’, ‘Jack’, ‘Hello’]<br>this.age = age;<br>}<br>Box.prototype.run = function () {<br>return this.name + this.age;<br>};<br>function Desk(age) {<br>Box.call(this, age); //对象冒充<br>}<br>Desk.prototype = new Box(); //原型链继承<br>var desk = new Desk(100);<br>alert(desk.run());</p>
-<h2 id="四。原型式继承"><a href="#四。原型式继承" class="headerlink" title="四。原型式继承"></a>四。原型式继承</h2><p>这种继承借助原型并基于已有的对象创建新对象，<br>同时还不必因此创建自定义类型 </p>
-<p>function obj(o) { //传递一个字面量函数<br>function F() {} //创建一个构造函数<br>F.prototype = o; //把字面量函数赋值给构造函数的原型<br>return new F(); //最终返回出实例化的构造函数<br>}<br>var box = { //字面量对象<br>name : ‘Lee’,<br>arr : [‘哥哥’,’妹妹’,’姐姐’]<br>};<br>var box1 = obj(box); //传递<br>alert(box1.name);<br>box1.name = ‘Jack’;<br>alert(box1.name);<br>alert(box1.arr);<br>box1.arr.push(‘父母’);<br>alert(box1.arr);<br>var box2 = obj(box); //传递<br>alert(box2.name);<br>alert(box2.arr); //引用类型共享了</p>
-<h2 id="五。寄生组合式继承"><a href="#五。寄生组合式继承" class="headerlink" title="五。寄生组合式继承"></a>五。寄生组合式继承</h2><p>寄生组合式继承解决了两次调用的问题，组合式继承就会有两次调用的情况</p>
-<p>基本模型如下：</p>
-<p>function object(o) {<br>    function F() {}<br>    F.prototype = o;<br>    return new F();<br>}</p>
-<p>function inheritPrototype(subType, superType) {<br>    var prototype = object(superType.prototype);  //创建对象<br>    prototype.constructor = subType;              //增强对象<br>    subType.prototype = prototype;                //指定对象<br>}</p>
+<h1 id="二、规则"><a href="#二、规则" class="headerlink" title="二、规则"></a>二、规则</h1><p>在JavaScript中，每个函数 都有一个prototype属性，当一个函数被用作构造函数来创建实例时，这个函数的prototype属性值会被作为原型赋值给所有对象实例（也就是设置 实例的<strong>proto</strong>属性），也就是说，所有实例的原型引用的是函数的prototype属性。(只有函数对象才会有这个属性!)<br>new 的过程分为三步<br><figure class="highlight plain"><figcaption><span>p </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">1. var p=&#123;&#125;; 初始化一个对象p。</div><div class="line">2. p._proto_=Person.prototype;，将对象p的 __proto__ 属性设置为 Person.prototype</div><div class="line">3. Person.call(p,”张三”,20);调用构造函数Person来初始化p。关于call/apply使用</div><div class="line"></div><div class="line"></div><div class="line"># 三、初识Object</div><div class="line">Object对象本身是一个函数对象。(CODE TEST) 既然是Object函数，就肯定会有prototype属性，所以可以看到”Object.prototype”的值就是”Object &#123;&#125;”这个原型对象。反过来，当访问”Object.prototype”对象的”constructor”这个属性的时候，就得到了Obejct函数。</div><div class="line">另外，当通过”Object.prototype._proto_”获取Object原型的原型的时候，将会得到”null”，也就是说”Object &#123;&#125;”原型对象就是原型链的终点了。</div><div class="line"></div><div class="line"></div><div class="line"># 四、初识Function</div><div class="line">如上面例子中的构造函数，JavaScript中函数也是对象，所以就可以通过_proto_查找到构造函数对象的原型。</div><div class="line">Function对象作为一个函数，就会有prototype属性，该属性将对应”function () &#123;&#125;”对象。</div><div class="line">Function对象作为一个对象，就有__proto__属性，该属性对应”Function.prototype”，也就是说，”Function._proto_ === Function.prototype”。</div><div class="line">在这里对“prototype”和“proto”进行简单的介绍：</div><div class="line">对于所有的对象，都有__proto__属性，这个属性对应该对象的原型.</div><div class="line">对于函数对象，除了__proto__属性之外，还有prototype属性，当一个函数被用作构造函数来创建实例时，该函数的prototype属性值将被作为原型赋值给所有对象实例（也就是设置实例的__proto__属性）</div><div class="line"></div><div class="line"></div><div class="line"># 原型链</div><div class="line">因为每个对象和原型都有原型，对象的原型指向原型对象，</div><div class="line">而父的原型又指向父的父，这种原型层层连接起来的就构成了原型链。</div><div class="line">一、属性查找</div><div class="line">当查找一个对象的属性时，JavaScript 会向上遍历原型链，直到找到给定名称的属性为止，到查找到达原型链的顶部（也就是 Object.prototype），如果仍然没有找到指定的属性，就会返回 undefined。</div></pre></td></tr></table></figure></p>
+<p>function Person(name, age){<br>    this.name = name;<br>    this.age = age;<br>  }<br>Person.prototype.MaxNumber = 9999;<br>Person.<strong>proto</strong>.MinNumber = -9999;<br>var will = new Person(“Will”, 28);<br>console.log(will.MaxNumber); // 9999<br>console.log(will.MinNumber); // undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在这个例子中分别给”Person.prototype “和” Person.proto”这两个原型对象添加了”MaxNumber “和”MinNumber”属性，这里就需要弄清”prototype”和”proto”的区别了。</div><div class="line">“Person.prototype “对应的就是Person构造出来所有实例的原型，也就是说”Person.prototype “属于这些实例原型链的一部分，所以当这些实例进行属性查找时候，就会引用到”Person.prototype “中的属性。</div><div class="line">对象创建方式影响原型链</div></pre></td></tr></table></figure></p>
+<p>var July = {<br>   name: “张三”,<br>   age: 28,<br>   getInfo: function(){<br>     console.log(this.name + “ is “ + this.age + “ years old”);<br>   }<br> }<br>console.log(July.getInfo());<br>```<br>当使用这种方式创建一个对象的时候，原型链就变成下图了. July对象的原型是”Object.prototype”也就是说对象的构建方式会影响原型链的形式。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>所有的对象都有<strong>proto</strong>属性，该属性对应该对象的原型.</li>
+<li>所有的函数对象都有prototype属性，该属性的值会被赋值给该函数创建的对3. 象的<em>proto</em>属性.</li>
+<li>所有的原型对象都有constructor属性，该属性对应创建所有指向该原型的实例的构造函数.</li>
+<li>函数对象和原型对象通过prototype和constructor属性进行相互关联.</li>
+</ol>
 
       
     </div>
@@ -351,8 +340,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/01/H5新特性/" rel="next" title="H5新特性">
-                <i class="fa fa-chevron-left"></i> H5新特性
+              <a href="/2017/05/25/DIV垂直居中方法/" rel="next" title="DIV垂直居中方法">
+                <i class="fa fa-chevron-left"></i> DIV垂直居中方法
               </a>
             
           </div>
@@ -361,8 +350,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/20/setTimeout和setInterval/" rel="prev" title="setTimeout和setInterval">
-                setTimeout和setInterval <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/02/前端的几个性能指标/" rel="prev" title="前端的几个性能指标">
+                前端的几个性能指标 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,7 +477,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js原型继承的几种方式"><span class="nav-number">1.</span> <span class="nav-text">js原型继承的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一。原型链继承"><span class="nav-number">1.1.</span> <span class="nav-text">一。原型链继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二。构造函数继承（对象冒充继承）"><span class="nav-number">1.2.</span> <span class="nav-text">二。构造函数继承（对象冒充继承）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三。组合继承（原型链继承-构造函数继承）"><span class="nav-number">1.3.</span> <span class="nav-text">三。组合继承（原型链继承+构造函数继承）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四。原型式继承"><span class="nav-number">1.4.</span> <span class="nav-text">四。原型式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五。寄生组合式继承"><span class="nav-number">1.5.</span> <span class="nav-text">五。寄生组合式继承</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、初识原型"><span class="nav-number">1.</span> <span class="nav-text">一、初识原型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、规则"><span class="nav-number">2.</span> <span class="nav-text">二、规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
